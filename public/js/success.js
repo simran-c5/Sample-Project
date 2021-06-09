@@ -1,11 +1,25 @@
+let flag = 0 
 
-
-const detailsAPI = async(data)=>{
+const addDetailsAPI = async(data)=>{
     const variable = await ajax( REQUEST_TYPE.POST,API_LIST.USERDETAILS,data);
     console.log(variable);
     if(variable.status == "success")
     {
-        window.location.href=API_LIST.USERDETAILSPAGE
+        $("#backgrounddiv").css("-webkit-filter", "blur(0)");
+        $("#DetailPopUp").hide();
+        getdetails();
+
+    }
+}
+const editDetailsAPI = async(data)=>{
+    const variable = await ajax( REQUEST_TYPE.POST,API_LIST.EDITDATA,data);
+    console.log(variable);
+    if(variable.status == "success")
+    {
+        $("#backgrounddiv").css("-webkit-filter", "blur(0)");
+        $("#DetailPopUp").hide();
+        getdetails();
+
     }
 }
 
@@ -16,7 +30,17 @@ const submitdetails = ()=>{
     data.lname = $("#lname").val();
     data.phonenumber = $("#pnumber").val();
     data.address = $("#address").val();
-    detailsAPI(data);
+    if(flag == 0)
+    {
+        console.log("notedit");
+        addDetailsAPI(data);
+    }
+    else
+    {
+        console.log("edit");
+        data.id = editContactId
+        editDetailsAPI(data);
+    }
 
 }
 

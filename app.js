@@ -28,7 +28,6 @@ mongoose.connect('mongodb://localhost:27017/urapp', { useNewUrlParser: true, use
 const detailSchema = new mongoose.Schema({
     username: {
         type: String,
-        unique: true,
         require: true
     },
     fname: {
@@ -38,8 +37,7 @@ const detailSchema = new mongoose.Schema({
         type: String
     },
     phonenumber: {
-        type: Number,
-        unique: true
+        type: Number
     },
     address: {
         type: String
@@ -77,8 +75,24 @@ app.get("/login", function (req, res) {
 app.get("/userdetail", function (req, res) {
     res.render('userdetail');
 });
+app.delete('/deleteDetail',function(req,res){
+    console.log(req.body);
+    Detail.deleteOne({_id : req.body.id}, (err,docs)=>{
+        if(err)
+        {
+            console.log(err);
+        }
+        else
+        {
+            res.json({
+                status : "success",
+                data : docs
+            });
+        }
+    });
+});
 app.get("/getuserdetails", function (req, res) {
-    Detail.findOne({ username: datadoc }, function (err, docs){
+    Detail.find({ username: datadoc }, function (err, docs){
         if(err)
         {
             console.log(err);
@@ -94,7 +108,24 @@ app.get("/getuserdetails", function (req, res) {
     });
 });
 
+app.post("/editDetails", async (req, res)=>{
+    const data = req.body;
+    Detail.findOneAndUpdate({_id: data.id},{fname: data.fname, lname: data.lname, phonenumber: data.phonenumber, address: data.address}, (err, docs)=>{
+        if(err)
+        {
+            console.log(err);
+        }
+        else
+        {
+            res.json({
+                status : "success",
+                data : docs
+            });
+        }
+    });
 
+
+});
 
 app.post("/submit", async (req, res) => {
 
@@ -106,13 +137,15 @@ app.post("/submit", async (req, res) => {
 
     });
     console.log(user);
-    datadoc = data.gmail;
     user.save((err, result)=>{
         if (err){
             console.log(err);
         }
         else{
             console.log(result)
+            datadoc = result.username;
+            console.log(datadoc);
+
             res.json({
                 status : "success",
                 data : result
@@ -180,6 +213,66 @@ const generateHash = async(password)=>{
     password = await bcrypt.hash(password, salt);
     return password;
 }
+
+app.get("/admin", (req, res)=>{
+    res.render("admin");
+});
+
+app.get("/userRegister", (req, res)=>{
+    User.find({ }, function (err, docs){
+        if(err)
+        {
+            console.log(err);
+        }
+        else
+        {
+            res.json({
+                status : "success",
+                data : docs
+            });
+        }
+
+    });
+});
+
+app.delete("/deleteUser", (req, res)=>{
+    console.log(req.body);
+    User.deleteOne({username : req.body.username}, (err,docs)=>{
+        if(err)
+        {
+            console.log(err);
+        }
+        else
+        {
+            res.json({
+                status : "success",
+                data : docs
+            });
+        }
+    });
+});
+
+
+app.post("/editData", async(req, res)=>{
+    const data = req.body;
+    data.password = await generateHash(data.password);
+    data.confirmpassword = await generateHash(data.confirmpassword)
+    User.findOneAndUpdate({username: data.username},{password:  data.password, confirmpas: data.confirmpassword }, (err, docs)=>{
+        if(err)
+        {
+            console.log(err);
+        }
+        else
+        {
+            res.json({
+                status : "success",
+                data : docs
+            });
+        }
+    });
+});
+
+
 app.listen(3000, function () {
     console.log('server is running at 3000')
 });

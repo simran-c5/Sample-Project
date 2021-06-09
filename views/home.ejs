@@ -1,15 +1,124 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title></title>
+  <title></title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/19bdd19522.js" crossorigin="anonymous"></script>
 </head>
+<div>
+  
+</div>
 <body>
-	<h1 >working properly</h1>
-      <button id="signupbtnid">signup</button>
-      <button id="loginbtnid">login</button>
-      <script src="js/home.js"></script>
-      <script src="js/ajax.js"></script>
-      <script src="js/endpoints.js"></script>
+  <div id="backgrounddiv">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <a class="navbar-brand" href="#">Contacts Application</a>
+      <ul class="navbar-nav navItemUlClass">
+        <li class="nav-item navItemClass">
+          <a id="SignInbtnid" class="nav-link" href="#">Sign IN</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="container-fluid mainHeadingDiv">
+      <div id="bgTextId" class="container headingClass" style="display: none;">
+        <p>Welcome to Contacts Application</p>
+      </div>
+    </div>
+  </div>
+  <div class="addBtnClass" id="addbtnid">
+    <i class="fas fa-plus-square  fa-3x" style="color: white;"></i>
+  </div>
+
+  <div class="container popUp" id="loginPopUp">
+    <div id="closeBtnId" class="closebtnstyle">
+      <i class="fas fa-times-circle closeBtnClass "></i>
+    </div>
+    <div class="container popUpHeadingDiv">
+      <p class="signInPopUpHeading">SignIn</p>
+    </div>
+    <div class="container inputfieldsDiv">
+      <div class="form-group">
+        <input type="text" class="form-control" name="gmail" placeholder="username" id="loginGmail">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="password" id="loginPassword" name="password">
+      </div>
+      <button id="loginBtnId" class="btn btn-primary btn-block">login</button>
+      <div>
+        <p>don't have account? <a class="registerBtnClass" id="SignUpBtnId">Register</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container popUp" id="SignUpPopUp">
+    <div id="SignUpCloseBtnId" class="closebtnstyle">
+      <i class="fas fa-times-circle closeBtnClass "></i>
+    </div>
+    <div class="container popUpHeadingDiv">
+      <p class="signInPopUpHeading">SignUp</p>
+    </div>
+    <div class="container inputfieldsDiv">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="username" id="gmail" name="gmail">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="password" id="password" name="password">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="confirm password" id="conpassword"
+          name="confirmpassword">
+      </div>
+      <button id="submitbtn" class="btn btn-primary btn-block">submit</button>
+      <div>
+        <p>Already have an account? <a class="registerBtnClass" id="SignInBtnId">SignIn</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container popUp" id="DetailPopUp">
+    <div id="DetailCloseBtnId" class="closebtnstyle">
+      <i class="fas fa-times-circle closeBtnClass "></i>
+    </div>
+    <div class="container popUpHeadingDiv">
+      <p class="signInPopUpHeading">Add contacts</p>
+    </div>
+    <div class="container inputfieldsDiv">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="first name" id="fname" name="fname">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="last name" id="lname" name="lname">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="phone number" id="pnumber" name="pnumber">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Address" id="address" name="address">
+      </div>
+      <button id="successbtnid" class="btn btn-primary btn-block">Submit</button>
+    </div>
+  </div>
+
+  <div id="detailCardId" class="container-fluid">
+    <div class="row" id="divParentDetail">
+    </div>
+  </div>
+
+  <script src="../js/userdetails.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/signup.js"></script>
+  <script src="js/success.js"></script>
+
+  <script src="js/ajax.js"></script>
+  <script src="js/endpoints.js"></script>
+  </div>
+
 </body>
+
 </html>
