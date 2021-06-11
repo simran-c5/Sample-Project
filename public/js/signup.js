@@ -3,6 +3,9 @@
 const signupAPI = async (data) => {
     const variable = await ajax(REQUEST_TYPE.POST, API_LIST.SIGNUPSUBMIT, data);
     if (variable.status == "success") {
+        window.localStorage.setItem("TOKEN", variable.token);
+        window.localStorage.setItem('USER', variable.data.username);
+        checkAuthVerifyToken();
         getdetails();
         SignUpHidePopUp();
     }

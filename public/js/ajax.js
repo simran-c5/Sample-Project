@@ -12,6 +12,7 @@ const ajax = (type, url, data) => {
             cache: false,
             crossDomain: true,
             processData: true,
+            headers: { "Authorization": localStorage.getItem('TOKEN') },
 
             success: function(data) {
                 resolve(data)

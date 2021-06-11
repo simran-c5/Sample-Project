@@ -3,7 +3,8 @@
 
 
 
-let editContactId 
+let editContactId ;
+let userVerified = false;
 
  const  DeleteAPI= async(data)=>{
      const result = await ajax(REQUEST_TYPE.DELETE,API_LIST.DELETEDATA,data);
@@ -79,9 +80,17 @@ btnclicks = () => {
     $("#addbtnid").click(() => {
         flag = 0;
         clrDetailsPopUp();
-        $("#backgrounddiv").css("-webkit-filter", "blur(10px)")
-        $("#SignUpPopUp").hide();
-        $("#DetailPopUp").show();
+        if(userVerified){
+            $("#backgrounddiv").css("-webkit-filter", "blur(10px)");
+            $("#loginPopUp").hide();
+            $("#DetailPopUp").show();
+        }
+        else{
+            $("#backgrounddiv").css("-webkit-filter", "blur(10px)");
+            $("#loginPopUp").show();
+            $("#DetailPopUp").hide();
+        }
+       
 
     });
     $(".deleteBtnClass").unbind("click")
@@ -105,7 +114,40 @@ btnclicks = () => {
 }
 
 
+const checkAuthVerifyToken= async(token)=>{
+    const result = await ajax(REQUEST_TYPE.GET,API_LIST.CHECKAUTH,{});
+    if(result && result.status=="success")
+    {
+        $("#SignInbtnid").hide();
+        $("#LogOutbtnid").show();
+        console.log(result);
+        userVerified = true;
+        return true;
+    }
+    else{
+        $("#SignInbtnid").show();
+        $("#LogOutbtnid").hide();
+        userVerified  = false;
+        return false;
+    }
+    
 
+}
+
+const logout=()=>{
+    window.localStorage.clear();
+    window.location.href="/";
+}
+
+const getUserContacts = ()=>{
+    token=window.localStorage.getItem('TOKEN');
+    console.log(token,"hulululul");
+    if(!token){
+    }
+    else{
+        return veryfyToken(token);
+    }
+}
 
 
 
@@ -113,6 +155,8 @@ btnclicks = () => {
 
 
 $(document).ready(() => {
+    checkAuthVerifyToken();
+    getdetails();
     btnclicks();
 });
 

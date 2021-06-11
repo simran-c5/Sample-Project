@@ -13,8 +13,8 @@ const API_LIST = {
 
     SIGNUPPAGE : `${API_SERVER}signup/`,
     LOGINPAGE : `${API_SERVER}login/`,
-    SIGNUPSUBMIT :  `${API_SERVER}submit/`,
-    LOGINSUBMIT :  `${API_SERVER}submitchk/`,
+    SIGNUPSUBMIT :  `${API_SERVER}signup/`,
+    LOGINSUBMIT :  `${API_SERVER}loginpost/`,
     SUCCESS :  `${API_SERVER}success/`,
     USERDETAILS :  `${API_SERVER}submitdetail/`,
     USERDETAILSPAGE :  `${API_SERVER}userdetail/`,
@@ -24,7 +24,9 @@ const API_LIST = {
     EDITDATA : `${API_SERVER}editDetails/`,
     GETREGISTERUSERS :  `${API_SERVER}userRegister/`,
     DELETEREGISTERUSER :  `${API_SERVER}deleteUser/`,
-    EDITREGISTERUSER :  `${API_SERVER}editData/`
+    EDITREGISTERUSER :  `${API_SERVER}editData/`,
+
+    CHECKAUTH :  `${API_SERVER}checkauth/`
 
 
 

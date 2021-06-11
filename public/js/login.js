@@ -6,9 +6,13 @@ const  loginAPI = async(data)=>{
     const variable = await ajax(REQUEST_TYPE.POST,API_LIST.LOGINSUBMIT,data);
     if(variable.status == "successful")
     {
+        console.log(variable);
+
+        window.localStorage.setItem("TOKEN", variable.token);
+        window.localStorage.setItem('USER', variable.user.username); 
         getdetails();
         hidePopUp();
-       
+        checkAuthVerifyToken();  
     }
     console.log(variable);
 }
