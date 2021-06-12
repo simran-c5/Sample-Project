@@ -199,6 +199,9 @@ const generateHash = async (password) => {
 app.get("/admin", (req, res) => {
     res.render("admin");
 });
+app.get("/aboutUs", (req, res) => {
+    res.render("aboutUs");
+});
 
 // app.get("/userRegister", (req, res) => {
 //     User.find({}, function (err, docs) {

@@ -103,5 +103,9 @@ body{
 .adminBody{
     background-color: cadetblue!important;
 }
+.errorStyle{
+    font-size: 0.7rem;
+    color: red;
+}
 
 

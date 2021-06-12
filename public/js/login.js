@@ -12,7 +12,14 @@ const  loginAPI = async(data)=>{
         window.localStorage.setItem('USER', variable.user.username); 
         getdetails();
         hidePopUp();
-        checkAuthVerifyToken();  
+        checkAuthVerifyToken(); 
+        customToastSuccess(variable.status,variable.message);
+ 
+    }
+    else
+    {
+        customToastError(variable.status,variable.message);
+
     }
     console.log(variable);
 }
@@ -20,8 +27,23 @@ const loginsubmitdata = ()=>{
     let data ={};
     data.gmail = $('#loginGmail').val();
     data.password = $('#loginPassword').val();
-    console.log(data);
-    loginAPI (data);
+    let errobj = {};
+    if (!isEmailValid(data.gmail)) {
+        errobj.gmail = "please enter valid email"
+        $("#err2").text(errobj.gmail).show();
+    }
+    if (!isPasswordValid(data.password)) {
+        errobj.password = "please enter valid password"
+        $("#err3").text(errobj.password).show();
+    }
+    if (!isEmpty(errobj)) {
+        console.log(errobj);
+    }
+    else {
+        console.log(data);
+        loginAPI(data);
+    }
+    
 }
  
 const loginsubmitbtnclick = ()=>{
@@ -29,6 +51,13 @@ const loginsubmitbtnclick = ()=>{
         console.log("hiii");
         loginsubmitdata();
     });
+    $("#loginGmail").on("click change input",() => {
+        $("#err2").hide()
+    });
+    $("#loginPassword").on("click change input",() => {
+        $("#err3").hide()
+    });
+   
 }
 
 const hidePopUp =()=>{

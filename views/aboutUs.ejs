@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/19bdd19522.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div id="detailCardId" class="container-fluid">
+        <div class="row" id="divParentDetail">
+            <div class="col-md-4 col-12 col-sm-6 cardStyling" >
+                <div class="card" style="height:21rem;">
+                    <div class="card-body">
+                        <div class="container mt-3">
+                            <div class="profileImage "
+                                style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto; background-color: red;">
+                                <img style="width: 100px; height: 100px; border-radius: 50%;"
+                                    src="https://thumbs.dreamstime.com/b/male-icon-vector-user-person-profile-avatar-flat-color-glyph-pictogram-illustration-117610350.jpg"
+                                    alt="">
+                            </div>
+                        </div>
+                        <div class="container mt-3" style="text-align: center;">
+                            <p style="font-size: 1.7rem;
+              font-weight: bold;
+              font-family: sans-serif; margin-bottom: 0;">${d.fname} ${d.lname}</p>
+                        </div>
+                        <div class="container" style="text-align: center;">
+                            <p style="font-size: 1.3rem;
+              font-weight: bold;
+              font-family: fangsong;
+              color: #babcbb;">${d.address}</p>
+                        </div>
+                        <div class="container" style="text-align: center;
+              padding: 8% 0%;
+              display: flex;
+              justify-content: space-evenly;">
+                            <i class="fab fa-whatsapp  fa-2x"></i>
+                            <i class="fas fa-phone-square  fa-2x"></i>
+                            <i class="far fa-envelope  fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

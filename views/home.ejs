@@ -5,6 +5,7 @@
   <title></title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/alert-popup-cdn.css">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -47,9 +48,11 @@
     <div class="container inputfieldsDiv">
       <div class="form-group">
         <input type="text" class="form-control" name="gmail" placeholder="username" id="loginGmail">
+        <p class="errorStyle" id="err2">  </p>
       </div>
       <div class="form-group">
         <input type="password" class="form-control" placeholder="password" id="loginPassword" name="password">
+        <p class="errorStyle" id="err3"></p>
       </div>
       <button id="loginBtnId" class="btn btn-primary btn-block">login</button>
       <div>
@@ -68,13 +71,16 @@
     <div class="container inputfieldsDiv">
       <div class="form-group">
         <input type="text" class="form-control" placeholder="username" id="gmail" name="gmail">
+        <p class="errorStyle" id="err4"></p>
       </div>
       <div class="form-group">
         <input type="password" class="form-control" placeholder="password" id="password" name="password">
+        <p class="errorStyle" id="err5"></p>
       </div>
       <div class="form-group">
         <input type="password" class="form-control" placeholder="confirm password" id="conpassword"
           name="confirmpassword">
+          <p class="errorStyle" id="err6"></p>
       </div>
       <button id="submitbtn" class="btn btn-primary btn-block">submit</button>
       <div>
@@ -93,35 +99,27 @@
     <div class="container inputfieldsDiv">
       <div class="form-group">
         <input type="text" class="form-control" placeholder="first name" id="fname" name="fname">
+        <p class="errorStyle"  id="err7"></p>
       </div>
       <div class="form-group">
         <input type="text" class="form-control" placeholder="last name" id="lname" name="lname">
+        <p class="errorStyle"  id="err8"></p>
       </div>
       <div class="form-group">
         <input type="text" class="form-control" placeholder="phone number" id="pnumber" name="pnumber">
+        <p class="errorStyle"  id="err9"></p>
       </div>
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Address" id="address" name="address">
+        <p class="errorStyle" id="err10"></p>
       </div>
       <button id="successbtnid" class="btn btn-primary btn-block">Submit</button>
     </div>
   </div>
-  <!-- <p>name:${d.fname}</p>
-  //    <p>lastname:${d.lname}</p>
-  //    <p>phone:${d.phonenumber} </p>
-  //    <p>address:${d.address}</p> 
-     
-  //  </div>
-  //  <div class="deleteBtnClass">
-  //    <i class="far fa-trash-alt fa-3x "></i>
-  //  </div>
-  //  <div class="editBtnClass">
-  //    <i class="fas fa-edit fa-3x"></i>  
-  //  </div> -->
 
   <div id="detailCardId" class="container-fluid">
     <div class="row" id="divParentDetail">
-      <div class="col-md-4 col-12 col-sm-6 cardStyling" id="${d._id}">
+      <!-- <div class="col-md-4 col-12 col-sm-6 cardStyling" id="${d._id}">
         <div class="card" style="height:21rem;">
           <div class="card-body">
             <div class="dropdown" style=" float: right; margin-top: -12px;
@@ -167,7 +165,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
   </div>
@@ -180,6 +178,12 @@
 
   <script src="js/ajax.js"></script>
   <script src="js/endpoints.js"></script>
+  <script src="js/validations.js"></script>
+  <script src="js/alert-popup-cdn.js"></script>
+  <script src="js/alert-popup.js"></script>
+
+
+
   </div>
 
 </body>
