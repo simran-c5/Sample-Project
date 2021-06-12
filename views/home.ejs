@@ -18,11 +18,15 @@
 <body>
   <div id="backgrounddiv">
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-      <a class="navbar-brand" href="#">Contacts Application</a>
+      <a class="navbar-brand" href="/">Contacts Application</a>
       <ul class="navbar-nav navItemUlClass">
         <li class="nav-item navItemClass">
-          <a id="SignInbtnid" class="nav-link" href="#">Sign IN</a>
-          <a id="LogOutbtnid" onclick="logout()" class="nav-link" href="#" style="display: none;">Log out</a>
+          <a class="nav-link" href="/about" style="color: white;">About us</a>
+        </li>
+        <li class="nav-item">
+
+          <a id="SignInbtnid" class="nav-link" href="#" style="color: white;">Signin</a>
+          <a id="LogOutbtnid" onclick="logout()" class="nav-link" href="#" style="display: none; color: white;" >Logout</a>
 
         </li>
       </ul>
@@ -121,7 +125,7 @@
 
   <div id="detailCardId" class="container-fluid">
     <div class="row" id="divParentDetail">
-      <div class="col-md-4 col-12 col-sm-6 cardStyling" id="${d._id}">
+      <div class="col-md-4 col-12 col-sm-6 cardStyling" id="${d._id}" style="display: none;">
         <div class="card" style="height:21rem;">
           <div class="card-body">
             <div class="dropdown" style=" float: right; margin-top: -12px;
