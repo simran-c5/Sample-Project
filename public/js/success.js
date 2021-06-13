@@ -30,7 +30,7 @@ const submitdetails = ()=>{
     data.lname = $("#lname").val();
     data.phonenumber = $("#pnumber").val();
     data.address = $("#address").val();
-    data.whatsappnumber = $("#whatsappnumber").val();
+    data.whatsappnumber = $("#whatsappNumber").val();
     let errobj = {};
     if (!isNameValid(data.fname)) {
         errobj.fname = "please enter valid name"
@@ -50,7 +50,7 @@ const submitdetails = ()=>{
     if(!isPhoneNumberValid(data.whatsappnumber))
     {
         errobj.whatsappnumber = "please enter valid number"
-        $("#err9").text(errobj.whatsappnumber).show();
+        $("#err12").text(errobj.whatsappnumber).show();
     }
     if(data.address=="")
     {
