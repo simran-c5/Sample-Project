@@ -34,7 +34,6 @@ const getForgotDetails = ()=>{
         console.log(errobj);
     }
     else {
-
             forgotReqEmailcheck(data);
     }
     
@@ -71,17 +70,14 @@ const clicks = ()=>{
     $("#submitResetForm").click(()=>{
         getResetdetails();
     });
-    $("#fname").on("click change input",() => {
-        $("#err7").hide()
-    });
-    $("#lname").on("click change input",() => {
-        $("#err8").hide()
-    });
-    $("#pnumber").on("click change input",() => {
-        $("#err9").hide()
-    });
-    $("#address").on("click change input",() => {
+    $("#username").on("click change input",() => {
         $("#err10").hide()
+    });
+    $("#newpassword").on("click change input",() => {
+        $("#err11").hide()
+    });
+    $("#connewpassword").on("click change input",() => {
+        $("#err12").hide()
     });
 
 }
