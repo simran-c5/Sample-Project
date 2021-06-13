@@ -25,6 +25,8 @@ const API_LIST = {
     GETREGISTERUSERS :  `${API_SERVER}userRegister/`,
     DELETEREGISTERUSER :  `${API_SERVER}deleteUser/`,
     EDITREGISTERUSER :  `${API_SERVER}editData/`,
+    FORGOTPASS :  `${API_SERVER}forgotreq/`,
+    RESETPASS :  `${API_SERVER}resetpass/`,
 
     CHECKAUTH :  `${API_SERVER}checkauth/`
 

@@ -103,6 +103,7 @@ app.post("/signup", async (req, res) => {
         if (user) {
             res.json({
                 status: "failure",
+                message:"user already exists"
             });
         }
         else{
@@ -123,6 +124,7 @@ app.post("/signup", async (req, res) => {
                     const token = jwt.sign({ user: result.username }, "ContactsApplicationJWT-Secret");        
                     res.json({
                         status: "success",
+                        message:"User Signed in successfully",
                         data: result,
                         token:token
                     });
@@ -141,7 +143,8 @@ app.post("/submitdetail",checkAuth, function (req, res) {
         fname: userdetail.fname,
         lname: userdetail.lname,
         phonenumber: userdetail.phonenumber,
-        address: userdetail.address
+        address: userdetail.address,
+        whatsappnumber:userdetail.whatsappnumber
     });
     detail.save((err, result) => {
         if (err) {
@@ -179,6 +182,7 @@ app.post("/loginpost", async (req, res) => {
                 const token = jwt.sign({ user: info.gmail }, "ContactsApplicationJWT-Secret");
                 res.json({
                     status: "successful",
+                    message:"User Logged In successfully",
                     user:docs,
                     token:token
                 });
@@ -186,7 +190,9 @@ app.post("/loginpost", async (req, res) => {
             }
             else {
                 res.json({
-                    status: "failure"
+                    status: "failure",
+                    message:"Wrong Username or password",
+
                 });
             }
         }
@@ -285,6 +291,63 @@ app.get("/checkauth",checkAuth,(req,res)=>{
         }    
         res.json(obj);
     }
+})
+
+app.post("/forgotreq",(req,res)=>{
+    const email = req.body.username;
+    console.log(req.body);
+    try {
+        User.findOne({username:email}).then((user)=>{
+            if(user){
+                res.json({
+                    "status": "success",
+                    "message":"user found"
+                })
+            }
+            else{
+                res.json({
+                    "status": "failure",
+                    "message":"user not found"
+                })
+            }
+        })
+    } catch (error) {
+        console.log(error);
+        res.json({
+            "status": "failure",
+            "message":"something went wrong"
+        })
+    }
+   
+});
+app.post("/resetpass",async(req,res)=>{
+    let pass = req.body.password;
+    let passhash = await bcrypt.hash(pass,10);
+    let username = req.body.username;
+    try {
+        User.findOneAndUpdate({username},{password:passhash}).then((user)=>{
+            if(user){
+                res.json({
+                    "status": "success",
+                    "message":"password changed successfully"
+                })
+            }
+            else{
+                res.json({
+                    "status": "failure",
+                    "message":"user not found"
+                })
+            }
+        });
+    } catch (error) {
+        console.log(error);
+        res.json({
+            "status": "failure",
+            "message":"something went wrong"
+        })
+    }
+  
+
 })
 
 
