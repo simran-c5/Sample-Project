@@ -107,5 +107,12 @@ body{
     font-size: 0.7rem;
     color: red;
 }
+.loginPopUp{
+    margin-top: 5%;
+  height: 53% !important;
+}
+.textCentre{
+    text-align: center;
+}
 
 

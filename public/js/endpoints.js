@@ -1,4 +1,4 @@
-const API_SERVER = "http://localhost:3000/"
+const API_SERVER = "http://localhost:4000/"
 
 const REQUEST_TYPE = {
     GET: "GET",

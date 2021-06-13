@@ -27,7 +27,8 @@
         <li class="nav-item">
 
           <a id="SignInbtnid" class="nav-link" href="#" style="color: white;">Signin</a>
-          <a id="LogOutbtnid" onclick="logout()" class="nav-link" href="#" style="display: none; color: white;" >Logout</a>
+          <a id="LogOutbtnid" onclick="logout()" class="nav-link" href="#"
+            style="display: none; color: white;">Logout</a>
 
         </li>
       </ul>
@@ -42,7 +43,42 @@
     <i class="fas fa-plus-square  fa-3x" style="color: white;"></i>
   </div>
 
-  <div class="container popUp" id="loginPopUp">
+  <div class="modal loginPopUp"  id="loginPopUp">
+    <div class="modal-dialog modal-dialog-centered" style="height: 87%;">
+        <div class="modal-content" style="height: 100%;">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="container textCentre">
+                    <h5>Login</h5>
+                </div>
+                <div class="container mt-5">
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="gmail" placeholder="username" id="loginGmail">
+                    <p class="errorStyle" id="err2"> </p>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" placeholder="password" id="loginPassword" name="password">
+                    <p class="errorStyle" id="err3"></p>
+                  </div>
+                  <button id="loginBtnId" class="btn btn-primary btn-block">login</button>
+                  
+                </div>
+                <div class="container mt-2">
+                    <div class="row">
+                        <div class="col-7">
+                             <span>Don't have an account?</span><a  class="registerBtnClass" id="SignUpBtnId">Register</a>
+                        </div>
+                       <div class="col-5" style="text-align: end;">
+                           <a href="">Forgot password?</a>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <!-- <div class="container popUp" id="loginPopUp">
     <div id="closeBtnId" class="closebtnstyle">
       <i class="fas fa-times-circle closeBtnClass "></i>
     </div>
@@ -52,7 +88,7 @@
     <div class="container inputfieldsDiv">
       <div class="form-group">
         <input type="text" class="form-control" name="gmail" placeholder="username" id="loginGmail">
-        <p class="errorStyle" id="err2">  </p>
+        <p class="errorStyle" id="err2"> </p>
       </div>
       <div class="form-group">
         <input type="password" class="form-control" placeholder="password" id="loginPassword" name="password">
@@ -63,7 +99,7 @@
         <p>don't have account? <a class="registerBtnClass" id="SignUpBtnId">Register</a></p>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div class="container popUp" id="SignUpPopUp">
     <div id="SignUpCloseBtnId" class="closebtnstyle">
@@ -84,7 +120,7 @@
       <div class="form-group">
         <input type="password" class="form-control" placeholder="confirm password" id="conpassword"
           name="confirmpassword">
-          <p class="errorStyle" id="err6"></p>
+        <p class="errorStyle" id="err6"></p>
       </div>
       <button id="submitbtn" class="btn btn-primary btn-block">submit</button>
       <div>
@@ -103,20 +139,29 @@
     <div class="container inputfieldsDiv">
       <div class="form-group">
         <input type="text" class="form-control" placeholder="first name" id="fname" name="fname">
-        <p class="errorStyle"  id="err7"></p>
+        <p class="errorStyle" id="err7"></p>
       </div>
       <div class="form-group">
         <input type="text" class="form-control" placeholder="last name" id="lname" name="lname">
-        <p class="errorStyle"  id="err8"></p>
+        <p class="errorStyle" id="err8"></p>
       </div>
       <div class="form-group">
         <input type="text" class="form-control" placeholder="phone number" id="pnumber" name="pnumber">
-        <p class="errorStyle"  id="err9"></p>
+        <p class="errorStyle" id="err9"></p>
       </div>
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Address" id="address" name="address">
         <p class="errorStyle" id="err10"></p>
       </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="emailId" id="emailId" name="emailId">
+        <p class="errorStyle" id="err11"></p>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="whatsappNumber" id="whatsappNumber" name="whatsappNumber">
+        <p class="errorStyle" id="err12"></p>
+      </div>
+      
       <button id="successbtnid" class="btn btn-primary btn-block">Submit</button>
     </div>
   </div>
