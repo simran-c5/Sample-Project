@@ -6,16 +6,16 @@ const showdetails = (data) => {
     html = `${html} <div class="col-md-4 col-12 col-sm-6 cardStyling" id="${d._id}">
     <div class="card styleCard" style="height:21rem;">
       <div class="card-body">
-        <div class="dropdown" style=" float: right; margin-top: -12px;
+        <div class="dropdown dropleft" style=" float: right; margin-top: -12px;
       margin-right: 5px;">
           <i data-toggle="dropdown" class=" fas fa-ellipsis-v"></i>
-          <div class="dropdown-menu" id="${d._id}">
+          <div class="dropdown-menu" style=" min-width: 6rem" id="${d._id}">
             <div class="deleteBtnClass">
-              <a class="dropdown-item "> <i class="far fa-trash-alt fa-lg "> delete</i>
+              <a class="dropdown-item " style="font-size: 0.7rem;"> <i style="font-weight: 600" class="far fa-trash-alt fa-lg "> delete</i>
               </a>
             </div>
             <div class="editBtnClass">
-              <a class="dropdown-item"> <i class="fas fa-edit fa-lg"> edit</i>
+              <a class="dropdown-item"  style="font-size: 0.7rem;"> <i class="fas fa-edit fa-lg"> edit</i>
               </a>
             </div>
           </div>
