@@ -108,9 +108,18 @@ body{
     color: red;
 }
 .loginPopUp{
-    margin-top: 5%;
   height: 53% !important;
 }
+.signUpPopUp{
+    height: 67% !important;
+}
+.signUpPopUp{
+    height: 87% !important;
+}
+.forgotPasswordPopUp{
+    height: 41% !important;
+}
+
 .textCentre{
     text-align: center;
 }

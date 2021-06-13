@@ -60,11 +60,30 @@ btnclicks = () => {
         $("#SignUpPopUp").hide();
 
     });
+    $("#forgotPasswordCloseBtnId").click(() => {
+        $("#backgrounddiv").css("-webkit-filter", "blur(0)");
+        $("#forgotPasswordPopUp").hide();
+
+    });
+    $("#resetPasswordCloseBtnId").click(() => {
+        $("#backgrounddiv").css("-webkit-filter", "blur(0)");
+        $("#resetPasswordPopUp").hide();
+
+    });
     $("#SignUpBtnId").click(() => {
         $("#backgrounddiv").css("-webkit-filter", "blur(10px)");
         $("#loginPopUp").hide();
         $("#SignUpPopUp").show();
-
+    });
+    $("#forgotPassword").click(() => {
+        $("#backgrounddiv").css("-webkit-filter", "blur(10px)");
+        $("#forgotPasswordPopUp").hide();
+        $("#resetPasswordPopUp").show();
+    });
+    $("#forgotPassword").click(() => {
+        $("#backgrounddiv").css("-webkit-filter", "blur(10px)");
+        $("#loginPopUp").hide();
+        $("#forgotPasswordPopUp").show();
     });
     $("#SignInBtnId").click(() => {
         $("#backgrounddiv").css("-webkit-filter", "blur(10px)");
