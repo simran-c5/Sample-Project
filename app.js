@@ -12,7 +12,7 @@ const Detail = require('./models/user-contacts-schema');
 const User = require('./models/user-Schema');
 
 
-mongoose.connect('mongodb://localhost:27017/urapp', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://Simranjain:Simranjain123@@cluster0.oxcdw.mongodb.net/ContactsApplication?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
 let datadoc = "";
 
@@ -353,6 +353,6 @@ app.post("/resetpass",async(req,res)=>{
 })
 
 
-app.listen(4000, function () {
+app.listen(process.env.PORT||4000, function () {
     console.log('server is running at 3000')
 });

@@ -1,4 +1,6 @@
-const API_SERVER = "http://localhost:4000/"
+// const API_SERVER = "http://localhost:4000/"
+const API_SERVER = "https://contact-cards.herokuapp.com/"
+
 
 const REQUEST_TYPE = {
     GET: "GET",
