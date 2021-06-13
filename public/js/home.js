@@ -75,12 +75,8 @@ btnclicks = () => {
         $("#loginPopUp").hide();
         $("#SignUpPopUp").show();
     });
-    $("#forgotPassword").click(() => {
-        $("#backgrounddiv").css("-webkit-filter", "blur(10px)");
-        $("#forgotPasswordPopUp").hide();
-        $("#resetPasswordPopUp").show();
-    });
-    $("#forgotPassword").click(() => {
+    
+    $("#loginForgotPassword").click(() => {
         $("#backgrounddiv").css("-webkit-filter", "blur(10px)");
         $("#loginPopUp").hide();
         $("#forgotPasswordPopUp").show();

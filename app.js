@@ -301,7 +301,9 @@ app.post("/forgotreq",(req,res)=>{
             if(user){
                 res.json({
                     "status": "success",
-                    "message":"user found"
+                    "message":"user found",
+                    "userid": user
+
                 })
             }
             else{

@@ -1,12 +1,14 @@
-let flag = 0 
+let user
 
 const forgotReqEmailcheck = async(data)=>{
     const variable = await ajax( REQUEST_TYPE.POST,API_LIST.FORGOTPASS,data);
     console.log(variable);
     if(variable.status == "success")
     {
+        user=variable.userid
         $("#backgrounddiv").css("-webkit-filter", "blur(0)");
-        $("#DetailPopUp").hide();
+        $("#forgotPasswordPopUp").hide();
+        $("#resetPasswordPopUp").show();
     }
 }
 
@@ -16,7 +18,14 @@ const resetPassReq = async(data)=>{
     if(variable.status == "success")
     {
         $("#backgrounddiv").css("-webkit-filter", "blur(0)");
-        $("#DetailPopUp").hide();
+        $("#resetPasswordPopUp").hide();
+        customToastSuccess(variable.status,variable.message);
+
+    }
+    else
+    {
+        customToastError(variable.status,variable.message);
+
     }
 }
 
@@ -27,8 +36,8 @@ const getForgotDetails = ()=>{
     data.username = $("#username").val();
     let errobj = {};
     if (!isEmailValid(data.username)) {
-        errobj.username = "please enter valid name"
-        $("#err10").text(errobj.username).show();
+        errobj.username = "please enter valid emailId"
+        $("#errforgot").text(errobj.username).show();
     }   
     if (!isEmpty(errobj)) {
         console.log(errobj);
@@ -39,18 +48,19 @@ const getForgotDetails = ()=>{
     
 
 }
-const submitResetForm = ()=>{
+const   getResetdetails = ()=>{
     const data = {}
-    data.password = $("#newpassword").val();
-    data.confirmpass =  $("#connewpassword").val();
+    data.username = user.username
+    data.password = $("#newPassword").val();
+    data.confirmpass =  $("#confirmNewPassword").val();
     let errobj = {};
     if (!isPasswordValid(data.password)) {
         errobj.password = "please enter valid password"
-        $("#err11").text(errobj.password).show();
+        $("#errnew").text(errobj.password).show();
     }
     if (!isPasswordMatch(data.password, data.confirmpass)) {
         errobj.confirmpass = "password does not match"
-        $("#err12").text(errobj.confirmpass).show();
+        $("#errnewcon").text(errobj.confirmpass).show();
     }
     if (!isEmpty(errobj)) {
         console.log(errobj);
@@ -63,25 +73,25 @@ const submitResetForm = ()=>{
 
 }
 
-const clicks = ()=>{
-    $("#submitforgotForm").click(()=>{
+const forgotResetClicks = ()=>{
+    $("#forgotPassword").click(()=>{
         getForgotDetails();
     });
-    $("#submitResetForm").click(()=>{
+    $("#resetPassword").click(()=>{
         getResetdetails();
     });
     $("#username").on("click change input",() => {
-        $("#err10").hide()
+        $("#errforgot").hide()
     });
-    $("#newpassword").on("click change input",() => {
-        $("#err11").hide()
+    $("#newPassword").on("click change input",() => {
+        $("#errnew").hide()
     });
-    $("#connewpassword").on("click change input",() => {
-        $("#err12").hide()
+    $("#confirmNewPassword").on("click change input",() => {
+        $("#errnewcon").hide()
     });
 
 }
 
 $(document).ready(()=>{
-clicks();
+    forgotResetClicks();
 });

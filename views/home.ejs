@@ -18,8 +18,13 @@
 
 <body>
   <div id="backgrounddiv">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #184d47!important;">
       <a class="navbar-brand" href="/">Contacts Application</a>
+      <button class="navbar-toggler" style="padding: .15rem .45rem;
+      font-size: 1rem;" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div  class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav navItemUlClass">
         <li class="nav-item navItemClass">
           <a class="nav-link" href="/about" style="color: white;">About us</a>
@@ -32,6 +37,8 @@
 
         </li>
       </ul>
+    </div>
+      
     </nav>
     <div class="container-fluid mainHeadingDiv">
       <div id="bgTextId" class="container headingClass" style="display: none;">
@@ -68,7 +75,7 @@
                 <span>Don't have an account?</span><a class="registerBtnClass" id="SignUpBtnId">Register</a>
               </div>
               <div class="col-5" style="text-align: end;">
-                <a class="registerBtnClass" id="forgotPassword">Forgot password?</a>
+                <a class="registerBtnClass" id="loginForgotPassword">Forgot password?</a>
               </div>
             </div>
           </div>
@@ -129,7 +136,7 @@
               <p class="errorStyle" id="err9"></p>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Address" id="address" name="address">
+              <input type="text" class="form-control" placeholder="relation/designation" id="address" name="address">
               <p class="errorStyle" id="err10"></p>
             </div>
             <div class="form-group">
@@ -157,7 +164,7 @@
           </div>
           <div class="container mt-5">
             <div class="form-group">
-              <input type="text" class="form-control" name="gmail" placeholder="username/email" id="loginGmail">
+              <input type="text" class="form-control" name="gmail" placeholder="username/email" id="username">
               <p class="errorStyle" id="errforgot"> </p>
             </div>
             <button id="forgotPassword" class="btn btn-primary btn-block">submit</button>
@@ -176,108 +183,24 @@
           </div>
           <div class="container mt-5">
             <div class="form-group">
-              <input type="password" class="form-control" placeholder="newpassword" id="loginPassword" name="password">
+              <input type="password" class="form-control" placeholder="newpassword" id="newPassword" name="password">
               <p class="errorStyle" id="errnew"></p>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" placeholder="confirmnewpassword" id="loginPassword" name="password">
+              <input type="password" class="form-control" placeholder="confirmnewpassword" id="confirmNewPassword" name="password">
               <p class="errorStyle" id="errnewcon"></p>
             </div>
-            <button id="forgotPassword" class="btn btn-primary btn-block">submit</button>
+            <button id="resetPassword" class="btn btn-primary btn-block">submit</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- <div class="container popUp" id="loginPopUp">
-    <div id="closeBtnId" class="closebtnstyle">
-      <i class="fas fa-times-circle closeBtnClass "></i>
-    </div>
-    <div class="container popUpHeadingDiv">
-      <p class="signInPopUpHeading">SignIn</p>
-    </div>
-    <div class="container inputfieldsDiv">
-      <div class="form-group">
-        <input type="text" class="form-control" name="gmail" placeholder="username" id="loginGmail">
-        <p class="errorStyle" id="err2"> </p>
-      </div>
-      <div class="form-group">
-        <input type="password" class="form-control" placeholder="password" id="loginPassword" name="password">
-        <p class="errorStyle" id="err3"></p>
-      </div>
-      <button id="loginBtnId" class="btn btn-primary btn-block">login</button>
-      <div>
-        <p>don't have account? <a class="registerBtnClass" id="SignUpBtnId">Register</a></p>
-      </div>
-    </div>
-  </div> -->
-
-  <!-- <div class="container popUp" id="SignUpPopUp">
-    <div id="SignUpCloseBtnId" class="closebtnstyle">
-      <i class="fas fa-times-circle closeBtnClass "></i>
-    </div>
-    <div class="container popUpHeadingDiv">
-      <p class="signInPopUpHeading">SignUp</p>
-    </div>
-    <div class="container inputfieldsDiv">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="username" id="gmail" name="gmail">
-        <p class="errorStyle" id="err4"></p>
-      </div>
-      <div class="form-group">
-        <input type="password" class="form-control" placeholder="password" id="password" name="password">
-        <p class="errorStyle" id="err5"></p>
-      </div>
-      <div class="form-group">
-        <input type="password" class="form-control" placeholder="confirm password" id="conpassword"
-          name="confirmpassword">
-        <p class="errorStyle" id="err6"></p>
-      </div>
-      <button id="submitbtn" class="btn btn-primary btn-block">submit</button>
-      <div>
-        <p>Already have an account? <a class="registerBtnClass" id="SignInBtnId">SignIn</a></p>
-      </div>
-    </div>
-  </div> -->
-
-  <!-- <div class="container popUp" id="DetailPopUp">
-    <div id="DetailCloseBtnId" class="closebtnstyle">
-      <i class="fas fa-times-circle closeBtnClass "></i>
-    </div>
-    <div class="container popUpHeadingDiv">
-      <p class="signInPopUpHeading">Add contacts</p>
-    </div>
-    <div class="container inputfieldsDiv">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="first name" id="fname" name="fname">
-        <p class="errorStyle" id="err7"></p>
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="last name" id="lname" name="lname">
-        <p class="errorStyle" id="err8"></p>
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="phone number" id="pnumber" name="pnumber">
-        <p class="errorStyle" id="err9"></p>
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Address" id="address" name="address">
-        <p class="errorStyle" id="err10"></p>
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="whatsapp Number" id="whatsappnumber" name="whatsappNumber">
-        <p class="errorStyle" id="err12"></p>
-      </div>
-
-      <button id="successbtnid" class="btn btn-primary btn-block">Submit</button>
-    </div>
-  </div> -->
-
   <div id="detailCardId" class="container-fluid">
     <div class="row" id="divParentDetail">
       <div class="col-md-4 col-12 col-sm-6 cardStyling" id="${d._id}" style="display: none;">
-        <div class="card" style="height:21rem;">
+        <div class="card styleCard" style="height:21rem;">
           <div class="card-body">
             <div class="dropdown" style=" float: right; margin-top: -12px;
           margin-right: 5px;">
@@ -322,7 +245,7 @@
             </div>
           </div>
         </div>
-      </div> -->
+      </div> 
     </div>
 
   </div>
@@ -338,6 +261,8 @@
   <script src="js/validations.js"></script>
   <script src="js/alert-popup-cdn.js"></script>
   <script src="js/alert-popup.js"></script>
+  <script src="js/forgot-reset.js"></script>
+
 
 
 

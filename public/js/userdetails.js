@@ -4,7 +4,7 @@ const showdetails = (data) => {
   let html = ``
   data.forEach((d) => {
     html = `${html} <div class="col-md-4 col-12 col-sm-6 cardStyling" id="${d._id}">
-    <div class="card" style="height:21rem;">
+    <div class="card styleCard" style="height:21rem;">
       <div class="card-body">
         <div class="dropdown" style=" float: right; margin-top: -12px;
       margin-right: 5px;">
