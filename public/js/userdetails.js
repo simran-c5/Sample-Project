@@ -43,9 +43,15 @@ const showdetails = (data) => {
       padding: 8% 0%;
       display: flex;
       justify-content: space-evenly;">
-          <i class="fab fa-whatsapp  fa-2x"></i>
+      <a href="https://wa.me/${d.whatsappnumber}" style="color:black;">         
+      <i class="fab fa-whatsapp  fa-2x"></i>
+      </a>
+      <a href="tel:${d.phonenumber}" style="color:black;">         
           <i class="fas fa-phone-square  fa-2x"></i>
+          </a>
+          <a href="mailto:${d.username}" style="color:black;">         
           <i class="far fa-envelope  fa-2x"></i>
+          </a>
         </div>
       </div>
     </div>

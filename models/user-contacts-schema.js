@@ -16,9 +16,6 @@ const detailSchema = new mongoose.Schema({
     address: {
         type: String
     },
-    email: {
-        type: String
-    },
     whatsappnumber: {
         type: Number
     }
