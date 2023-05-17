@@ -12,10 +12,14 @@ const Detail = require('./models/user-contacts-schema');
 const User = require('./models/user-Schema');
 
 
-mongoose.connect('mongodb+srv://Simranjain:Simranjain123@@cluster0.oxcdw.mongodb.net/ContactsApplication?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+//  mongoose.connect('mongodb+srv://Simranjain:Simranjain123@@cluster0.oxcdw.mongodb.net/ContactsApplication?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
-let datadoc = "";
+// let datadoc = "";
 
+mongoose.connect("mongodb://localhost:27017/Dressify" ,  { useNewUrlParser: true,
+useUnifiedTopology: true,
+useCreateIndex: true,
+useFindAndModify: false});
 
 
 
@@ -99,6 +103,7 @@ app.post("/editDetails",checkAuth, async (req, res) => {
 app.post("/signup", async (req, res) => {
 
     const data = req.body;
+    console.log("testing", data);
     User.findOne({ username: data.gmail }).then(async(user) => {
         if (user) {
             res.json({
@@ -113,24 +118,33 @@ app.post("/signup", async (req, res) => {
                 password: pass,
             });
             console.log(user);
-            user.save((err, result) => {
-                if (err) {
-                    console.log(err);
-                }
-                else {
-                    console.log(result)
-                    datadoc = result.username;
-                    console.log(datadoc);
-                    const token = jwt.sign({ user: result.username }, "ContactsApplicationJWT-Secret");        
-                    res.json({
-                        status: "success",
-                        message:"User Signed in successfully",
-                        data: result,
-                        token:token
-                    });
-                }
-            });
-
+            try {
+                user.save((err, result) => {
+                    if (err) {
+                        console.log(err);
+                    }
+                    else {
+                        console.log(result)
+                        datadoc = result.username;
+                        console.log(datadoc);
+                        const token = jwt.sign({ user: result.username }, "ContactsApplicationJWT-Secret");        
+                        res.json({
+                            status: "success",
+                            message:"User Signed in successfully",
+                            data: result,
+                            token:token
+                        });
+                    }
+                });
+     
+            } catch (error) {
+                console.log(error);
+                res.json({
+                    status:"failure",
+                    message:error
+                }); 
+            }
+           
         }
     })
    
@@ -353,6 +367,6 @@ app.post("/resetpass",async(req,res)=>{
 })
 
 
-app.listen(process.env.PORT||4000, function () {
-    console.log('server is running at 3000')
+app.listen(process.env.PORT||5000, function () {
+    console.log('server is running at 5000')
 });

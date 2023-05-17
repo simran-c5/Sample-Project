@@ -1,1 +1,1 @@
-web: node app.js
+mpweb: node app.js
